@@ -172,4 +172,4 @@ Aplikasi terhubung ke Supabase untuk database dan storage. Konfigurasi ada di `S
 
 ## Lisensi
 
-© 2024–2026 PENS — Workshop Pemrograman 2
+© 2026 PENS — Workshop Pemrograman 2
