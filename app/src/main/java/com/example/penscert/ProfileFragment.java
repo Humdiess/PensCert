@@ -19,8 +19,8 @@ import androidx.fragment.app.Fragment;
 public class ProfileFragment extends Fragment {
 
     private TextView tvAvatarInitial, tvProfileName, tvProfileRole, tvProfileId;
-    private TextView tvInfoName, tvInfoRole;
-    private LinearLayout btnAbout;
+    private TextView tvInfoName, tvInfoRole, tvSecurityStatus;
+    private LinearLayout btnAbout, btnHelp, btnShare, btnClearCache;
     private Button btnLogout;
 
     @Nullable
@@ -40,12 +40,19 @@ public class ProfileFragment extends Fragment {
         tvProfileId = view.findViewById(R.id.tvProfileId);
         tvInfoName = view.findViewById(R.id.tvInfoName);
         tvInfoRole = view.findViewById(R.id.tvInfoRole);
+        tvSecurityStatus = view.findViewById(R.id.tvSecurityStatus);
         btnAbout = view.findViewById(R.id.btnAbout);
+        btnHelp = view.findViewById(R.id.btnHelp);
+        btnShare = view.findViewById(R.id.btnShare);
+        btnClearCache = view.findViewById(R.id.btnClearCache);
         btnLogout = view.findViewById(R.id.btnLogout);
 
         loadUserData();
 
         btnAbout.setOnClickListener(v -> showAboutDialog());
+        btnHelp.setOnClickListener(v -> showHelpDialog());
+        btnShare.setOnClickListener(v -> shareApp());
+        btnClearCache.setOnClickListener(v -> clearCache());
         btnLogout.setOnClickListener(v -> showLogoutConfirmation());
     }
 
@@ -81,6 +88,67 @@ public class ProfileFragment extends Fragment {
                         "© 2024 PENS - Workshop Pemrograman 2")
                 .setPositiveButton("Tutup", null)
                 .show();
+    }
+
+    private void showHelpDialog() {
+        String help = "📞 Bantuan & Dukungan\n\n" +
+                "Jika Anda mengalami masalah dengan aplikasi PENS Cert, " +
+                "silakan hubungi:\n\n" +
+                "📧 Email: support@pens.ac.id\n" +
+                "📱 WhatsApp: +62 812-3456-7890\n" +
+                "🌐 Website: pens.ac.id/penscert\n\n" +
+                "Jam Operasional:\n" +
+                "Senin - Jumat, 08:00 - 16:00 WIB\n\n" +
+                "Tim support kami akan merespons dalam 1x24 jam.";
+        new AlertDialog.Builder(requireContext())
+                .setTitle("Bantuan & Dukungan")
+                .setMessage(help)
+                .setPositiveButton("Tutup", null)
+                .show();
+    }
+
+    private void shareApp() {
+        Intent shareIntent = new Intent(Intent.ACTION_SEND);
+        shareIntent.setType("text/plain");
+        shareIntent.putExtra(Intent.EXTRA_SUBJECT, "PENS Cert - Keamanan Dokumen Digital");
+        shareIntent.putExtra(Intent.EXTRA_TEXT,
+                "🔐 Gunakan PENS Cert untuk mengamankan dan memverifikasi dokumen digital Anda!\n\n" +
+                "Fitur:\n" +
+                "✅ Verifikasi dokumen via QR Code\n" +
+                "✅ Tanda tangan digital\n" +
+                "✅ Manajemen sertifikat\n\n" +
+                "Download di: pens.ac.id/penscert");
+        startActivity(Intent.createChooser(shareIntent, "Bagikan melalui"));
+    }
+
+    private void clearCache() {
+        new AlertDialog.Builder(requireContext())
+                .setTitle("Bersihkan Cache")
+                .setMessage("Ini akan menghapus data cache aplikasi. Data akun dan dokumen tidak akan terpengaruh.")
+                .setPositiveButton("Bersihkan", (dialog, which) -> {
+                    try {
+                        // Clear cache directory
+                        java.io.File cacheDir = requireContext().getCacheDir();
+                        deleteDir(cacheDir);
+                        Toast.makeText(requireContext(), "Cache berhasil dibersihkan", Toast.LENGTH_SHORT).show();
+                    } catch (Exception e) {
+                        Toast.makeText(requireContext(), "Gagal membersihkan cache", Toast.LENGTH_SHORT).show();
+                    }
+                })
+                .setNegativeButton("Batal", null)
+                .show();
+    }
+
+    private boolean deleteDir(java.io.File dir) {
+        if (dir != null && dir.isDirectory()) {
+            String[] children = dir.list();
+            if (children != null) {
+                for (String child : children) {
+                    if (!deleteDir(new java.io.File(dir, child))) return false;
+                }
+            }
+        }
+        return dir != null && dir.delete();
     }
 
     private void showLogoutConfirmation() {

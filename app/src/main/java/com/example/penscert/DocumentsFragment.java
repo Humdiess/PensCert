@@ -35,12 +35,14 @@ public class DocumentsFragment extends Fragment {
     private TabLayout tabLayout;
     private RecyclerView rvDocuments;
     private View emptyState;
+    private TextView tvDocCount, tvSortLabel;
     private DocumentAdapter adapter;
     private SupabaseHelper supabaseHelper;
 
     private List<Certificate> allCertificates = new ArrayList<>();
     private String currentStatusFilter = null; // null = all
     private String currentSearchQuery = "";
+    private boolean sortAscending = false; // false = newest first (default)
 
     private final String[] tabTitles = {"Semua", "Menunggu", "Tervalidasi", "Ditolak"};
     private final String[] statusFilters = {null, "PENDING", "VALID", "REJECTED"};
@@ -60,8 +62,17 @@ public class DocumentsFragment extends Fragment {
         tabLayout = view.findViewById(R.id.tabLayout);
         rvDocuments = view.findViewById(R.id.rvDocuments);
         emptyState = view.findViewById(R.id.emptyState);
+        tvDocCount = view.findViewById(R.id.tvDocCount);
+        tvSortLabel = view.findViewById(R.id.tvSortLabel);
 
         supabaseHelper = new SupabaseHelper();
+
+        // Sort button toggle
+        view.findViewById(R.id.btnSort).setOnClickListener(v -> {
+            sortAscending = !sortAscending;
+            tvSortLabel.setText(sortAscending ? "Terlama" : "Terbaru");
+            filterAndDisplay();
+        });
 
         // Setup tabs
         for (String title : tabTitles) {
@@ -157,6 +168,24 @@ public class DocumentsFragment extends Fragment {
 
             filtered.add(cert);
         }
+
+        // Sort by date
+        if (sortAscending) {
+            java.util.Collections.sort(filtered, (a, b) -> {
+                String dateA = a.issuedAt != null ? a.issuedAt : "";
+                String dateB = b.issuedAt != null ? b.issuedAt : "";
+                return dateA.compareTo(dateB);
+            });
+        } else {
+            java.util.Collections.sort(filtered, (a, b) -> {
+                String dateA = a.issuedAt != null ? a.issuedAt : "";
+                String dateB = b.issuedAt != null ? b.issuedAt : "";
+                return dateB.compareTo(dateA);
+            });
+        }
+
+        // Update count
+        tvDocCount.setText("Menampilkan " + filtered.size() + " dokumen");
 
         showEmptyState(filtered.isEmpty());
         adapter.updateData(filtered);

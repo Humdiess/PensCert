@@ -89,6 +89,52 @@
         app:tabMode="scrollable"
         app:tabGravity="start" />
 
+    <!-- Document Count + Sort -->
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:gravity="center_vertical"
+        android:paddingHorizontal="20dp"
+        android:paddingTop="8dp"
+        android:paddingBottom="4dp">
+        <TextView
+            android:id="@+id/tvDocCount"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:text="Memuat dokumen..."
+            android:textColor="@color/muted_foreground"
+            android:textSize="12sp"
+            android:fontFamily="sans-serif-medium" />
+        <LinearLayout
+            android:id="@+id/btnSort"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:gravity="center_vertical"
+            android:paddingHorizontal="12dp"
+            android:paddingVertical="6dp"
+            android:background="?attr/selectableItemBackground"
+            android:clickable="true"
+            android:focusable="true">
+            <ImageView
+                android:layout_width="16dp"
+                android:layout_height="16dp"
+                android:src="@drawable/ic_filter"
+                app:tint="@color/primary" />
+            <TextView
+                android:id="@+id/tvSortLabel"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="4dp"
+                android:text="Terbaru"
+                android:textColor="@color/primary"
+                android:textSize="12sp"
+                android:fontFamily="sans-serif-bold" />
+        </LinearLayout>
+    </LinearLayout>
+
     <!-- RecyclerView -->
     <FrameLayout
         android:layout_width="match_parent"

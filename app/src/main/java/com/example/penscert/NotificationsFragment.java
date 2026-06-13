@@ -1,6 +1,8 @@
 package com.example.penscert;
 
 import android.content.Intent;
+import android.content.res.ColorStateList;
+import android.graphics.Color;
 import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -16,16 +18,24 @@ import androidx.fragment.app.Fragment;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
+import com.google.android.material.card.MaterialCardView;
+
 import java.util.ArrayList;
 import java.util.List;
 
 public class NotificationsFragment extends Fragment {
 
-    private TextView tvNotifSubtitle, btnMarkAllRead;
+    private TextView tvNotifSubtitle, btnMarkAllRead, btnClearOld;
     private RecyclerView rvNotifications;
     private View emptyState;
     private NotificationAdapter adapter;
     private NotificationHelper notifHelper;
+
+    private List<Notification> allNotifications = new ArrayList<>();
+    private String currentTypeFilter = null; // null = all
+
+    // Chip views
+    private MaterialCardView chipAll, chipApproved, chipRejected, chipRequest;
 
     @Nullable
     @Override
@@ -40,10 +50,22 @@ public class NotificationsFragment extends Fragment {
 
         tvNotifSubtitle = view.findViewById(R.id.tvNotifSubtitle);
         btnMarkAllRead = view.findViewById(R.id.btnMarkAllRead);
+        btnClearOld = view.findViewById(R.id.btnClearOld);
         rvNotifications = view.findViewById(R.id.rvNotifications);
         emptyState = view.findViewById(R.id.emptyState);
 
         notifHelper = new NotificationHelper(requireContext());
+
+        // Setup filter chips
+        chipAll = view.findViewById(R.id.chipAll);
+        chipApproved = view.findViewById(R.id.chipApproved);
+        chipRejected = view.findViewById(R.id.chipRejected);
+        chipRequest = view.findViewById(R.id.chipRequest);
+
+        chipAll.setOnClickListener(v -> setFilter(null, chipAll));
+        chipApproved.setOnClickListener(v -> setFilter("APPROVED", chipApproved));
+        chipRejected.setOnClickListener(v -> setFilter("REJECTED", chipRejected));
+        chipRequest.setOnClickListener(v -> setFilter("NEW_REQUEST", chipRequest));
 
         rvNotifications.setLayoutManager(new LinearLayoutManager(requireContext()));
         adapter = new NotificationAdapter(new ArrayList<>(), new NotificationAdapter.OnNotifClickListener() {
@@ -72,6 +94,19 @@ public class NotificationsFragment extends Fragment {
             Toast.makeText(requireContext(), "Semua notifikasi ditandai dibaca", Toast.LENGTH_SHORT).show();
         });
 
+        btnClearOld.setOnClickListener(v -> {
+            List<Notification> list = notifHelper.getAllNotifications();
+            int removed = 0;
+            for (Notification n : list) {
+                if (n.isRead) {
+                    notifHelper.markAsRead(n.id); // re-mark to trigger removal
+                    removed++;
+                }
+            }
+            refreshList();
+            Toast.makeText(requireContext(), removed + " notifikasi dihapus", Toast.LENGTH_SHORT).show();
+        });
+
         refreshList();
     }
 
@@ -83,20 +118,45 @@ public class NotificationsFragment extends Fragment {
         }
     }
 
+    private void setFilter(String type, MaterialCardView activeChip) {
+        currentTypeFilter = type;
+        // Reset all chips
+        MaterialCardView[] chips = {chipAll, chipApproved, chipRejected, chipRequest};
+        for (MaterialCardView chip : chips) {
+            chip.setCardBackgroundColor(chip == activeChip
+                    ? requireContext().getColor(R.color.primary)
+                    : requireContext().getColor(R.color.surface));
+            chip.setStrokeWidth(chip == activeChip ? 0 : 1);
+        }
+        refreshList();
+    }
+
     private void refreshList() {
         List<Notification> list = notifHelper.getAllNotifications();
+        allNotifications = list;
         int unread = notifHelper.getUnreadCount();
         tvNotifSubtitle.setText(unread > 0
                 ? unread + " notifikasi belum dibaca"
                 : "Pusat pemberitahuan dokumen");
 
-        if (list.isEmpty()) {
+        // Apply type filter
+        List<Notification> filtered = new ArrayList<>();
+        for (Notification n : list) {
+            if (currentTypeFilter == null) {
+                filtered.add(n);
+            } else {
+                String type = n.type != null ? n.type : "STATUS_CHANGE";
+                if (currentTypeFilter.equals(type)) filtered.add(n);
+            }
+        }
+
+        if (filtered.isEmpty()) {
             emptyState.setVisibility(View.VISIBLE);
             rvNotifications.setVisibility(View.GONE);
         } else {
             emptyState.setVisibility(View.GONE);
             rvNotifications.setVisibility(View.VISIBLE);
-            adapter.updateData(list);
+            adapter.updateData(filtered);
         }
     }
 

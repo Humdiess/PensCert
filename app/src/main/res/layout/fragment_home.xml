@@ -5,7 +5,7 @@
     android:layout_height="match_parent"
     android:background="@color/background"
     android:clipToPadding="false"
-    android:paddingBottom="16dp">
+    android:paddingBottom="24dp">
 
     <LinearLayout
         android:layout_width="match_parent"
@@ -62,6 +62,7 @@
                 </LinearLayout>
 
                 <TextView
+                    android:id="@+id/tvGreeting"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_marginTop="12dp"
@@ -191,6 +192,55 @@
             </com.google.android.material.card.MaterialCardView>
         </LinearLayout>
 
+        <!-- Quick Search Bar -->
+        <com.google.android.material.card.MaterialCardView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginHorizontal="20dp"
+            android:layout_marginTop="20dp"
+            app:cardBackgroundColor="@color/surface"
+            app:cardCornerRadius="16dp"
+            app:cardElevation="0dp"
+            app:strokeWidth="1dp"
+            app:strokeColor="@color/border">
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:gravity="center_vertical"
+                android:padding="12dp">
+                <ImageView
+                    android:layout_width="20dp"
+                    android:layout_height="20dp"
+                    android:src="@drawable/ic_search"
+                    app:tint="@color/muted_foreground" />
+                <EditText
+                    android:id="@+id/etQuickSearch"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:layout_marginHorizontal="10dp"
+                    android:background="@android:color/transparent"
+                    android:hint="Cari dokumen berdasarkan ID..."
+                    android:textColorHint="@color/muted_foreground"
+                    android:textColor="@color/foreground"
+                    android:textSize="13sp"
+                    android:inputType="text"
+                    android:imeOptions="actionSearch"
+                    android:maxLines="1" />
+                <com.google.android.material.button.MaterialButton
+                    android:id="@+id/btnQuickSearch"
+                    style="@style/Widget.MaterialComponents.Button.TextButton"
+                    android:layout_width="wrap_content"
+                    android:layout_height="36dp"
+                    android:text="Cari"
+                    android:textSize="12sp"
+                    android:textColor="@color/white"
+                    android:backgroundTint="@color/pens_blue"
+                    app:cornerRadius="10dp" />
+            </LinearLayout>
+        </com.google.android.material.card.MaterialCardView>
+
         <!-- Quick Actions -->
         <TextView
             style="@style/Text.PensCert.SectionHeader"
@@ -208,7 +258,7 @@
             android:layout_marginTop="10dp">
 
             <com.google.android.material.card.MaterialCardView
-                android:id="@+id/btnScan"
+                android:id="@+id/btnSearch"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:layout_columnWeight="1"
@@ -231,14 +281,14 @@
                             android:layout_width="24dp"
                             android:layout_height="24dp"
                             android:layout_gravity="center"
-                            android:src="@android:drawable/ic_menu_camera"
+                            android:src="@drawable/ic_search"
                             app:tint="@color/primary" />
                     </FrameLayout>
                     <TextView
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_marginTop="14dp"
-                        android:text="Pindai QR"
+                        android:text="Cari Dokumen"
                         android:textColor="@color/foreground"
                         android:textSize="15sp"
                         android:fontFamily="sans-serif-black" />
@@ -246,7 +296,7 @@
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_marginTop="3dp"
-                        android:text="Verifikasi dokumen"
+                        android:text="Cari berdasarkan ID"
                         android:textColor="@color/muted_foreground"
                         android:textSize="11sp" />
                 </LinearLayout>
@@ -386,7 +436,319 @@
                         android:textSize="11sp" />
                 </LinearLayout>
             </com.google.android.material.card.MaterialCardView>
+
+            <!-- Row 3: Panduan (full width spanning 2 cols) -->
+            <com.google.android.material.card.MaterialCardView
+                android:id="@+id/btnGuide"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_columnWeight="2"
+                android:layout_columnSpan="2"
+                android:layout_margin="6dp"
+                app:cardBackgroundColor="@color/surface"
+                app:cardCornerRadius="14dp"
+                app:cardElevation="0dp"
+                app:strokeWidth="1dp"
+                app:strokeColor="@color/border">
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal"
+                    android:gravity="center_vertical"
+                    android:padding="16dp">
+                    <FrameLayout
+                        android:layout_width="44dp"
+                        android:layout_height="44dp"
+                        android:background="@drawable/menu_icon_bg_primary">
+                        <ImageView
+                            android:layout_width="24dp"
+                            android:layout_height="24dp"
+                            android:layout_gravity="center"
+                            android:src="@drawable/ic_info"
+                            app:tint="@color/primary" />
+                    </FrameLayout>
+                    <LinearLayout
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:orientation="vertical"
+                        android:layout_marginStart="14dp">
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="Panduan Penggunaan"
+                            android:textColor="@color/foreground"
+                            android:textSize="15sp"
+                            android:fontFamily="sans-serif-black" />
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginTop="3dp"
+                            android:text="Cara menggunakan PENS Cert"
+                            android:textColor="@color/muted_foreground"
+                            android:textSize="11sp" />
+                    </LinearLayout>
+                    <ImageView
+                        android:layout_width="20dp"
+                        android:layout_height="20dp"
+                        android:src="@drawable/ic_arrow_back"
+                        android:rotation="180"
+                        app:tint="@color/muted_foreground" />
+                </LinearLayout>
+            </com.google.android.material.card.MaterialCardView>
         </GridLayout>
+
+        <!-- Tips Keamanan -->
+        <com.google.android.material.card.MaterialCardView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginHorizontal="20dp"
+            android:layout_marginTop="20dp"
+            app:cardBackgroundColor="#EBF5FF"
+            app:cardCornerRadius="16dp"
+            app:cardElevation="0dp"
+            app:strokeWidth="0dp">
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:gravity="center_vertical"
+                android:padding="18dp">
+                <FrameLayout
+                    android:layout_width="40dp"
+                    android:layout_height="40dp"
+                    android:background="@drawable/menu_icon_bg_primary">
+                    <ImageView
+                        android:layout_width="22dp"
+                        android:layout_height="22dp"
+                        android:layout_gravity="center"
+                        android:src="@drawable/ic_shield"
+                        app:tint="@color/primary" />
+                </FrameLayout>
+                <LinearLayout
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:orientation="vertical"
+                    android:layout_marginStart="14dp">
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="Tips Keamanan"
+                        android:textColor="@color/primary"
+                        android:textSize="13sp"
+                        android:fontFamily="sans-serif-black" />
+                    <TextView
+                        android:id="@+id/tvSecurityTip"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="3dp"
+                        android:text="Selalu periksa QR Code pada dokumen resmi untuk memastikan keasliannya."
+                        android:textColor="@color/muted_foreground"
+                        android:textSize="11sp"
+                        android:lineSpacingExtra="2dp" />
+                </LinearLayout>
+            </LinearLayout>
+        </com.google.android.material.card.MaterialCardView>
+
+        <!-- Info Statistik Singkat -->
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:paddingHorizontal="20dp"
+            android:layout_marginTop="16dp">
+            <com.google.android.material.card.MaterialCardView
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:layout_marginEnd="6dp"
+                app:cardCornerRadius="12dp"
+                app:cardElevation="0dp"
+                app:strokeWidth="1dp"
+                app:strokeColor="@color/border"
+                app:cardBackgroundColor="@color/surface">
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal"
+                    android:gravity="center_vertical"
+                    android:padding="14dp">
+                    <ImageView
+                        android:layout_width="18dp"
+                        android:layout_height="18dp"
+                        android:src="@drawable/ic_verified"
+                        app:tint="@color/success" />
+                    <TextView
+                        android:id="@+id/tvVerifiedPercent"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="8dp"
+                        android:text="0% Terverifikasi"
+                        android:textColor="@color/foreground"
+                        android:textSize="12sp"
+                        android:fontFamily="sans-serif-bold" />
+                </LinearLayout>
+            </com.google.android.material.card.MaterialCardView>
+
+            <com.google.android.material.card.MaterialCardView
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:layout_marginStart="6dp"
+                app:cardCornerRadius="12dp"
+                app:cardElevation="0dp"
+                app:strokeWidth="1dp"
+                app:strokeColor="@color/border"
+                app:cardBackgroundColor="@color/surface">
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal"
+                    android:gravity="center_vertical"
+                    android:padding="14dp">
+                    <ImageView
+                        android:layout_width="18dp"
+                        android:layout_height="18dp"
+                        android:src="@drawable/ic_clock"
+                        app:tint="@color/warning" />
+                    <TextView
+                        android:id="@+id/tvLastActivity"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="8dp"
+                        android:text="Terakhir: -"
+                        android:textColor="@color/foreground"
+                        android:textSize="12sp"
+                        android:fontFamily="sans-serif-bold" />
+                </LinearLayout>
+            </com.google.android.material.card.MaterialCardView>
+        </LinearLayout>
+
+        <!-- Achievement Badge Card -->
+        <com.google.android.material.card.MaterialCardView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginHorizontal="20dp"
+            android:layout_marginTop="16dp"
+            app:cardBackgroundColor="#FFF7ED"
+            app:cardCornerRadius="16dp"
+            app:cardElevation="0dp"
+            app:strokeWidth="0dp">
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:gravity="center_vertical"
+                android:padding="18dp">
+                <TextView
+                    android:id="@+id/tvAchievementIcon"
+                    android:layout_width="48dp"
+                    android:layout_height="48dp"
+                    android:gravity="center"
+                    android:text="🏆"
+                    android:textSize="24sp"
+                    android:background="@drawable/menu_icon_bg_warning" />
+                <LinearLayout
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:orientation="vertical"
+                    android:layout_marginStart="14dp">
+                    <TextView
+                        android:id="@+id/tvAchievementTitle"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="Pemula Digital"
+                        android:textColor="@color/foreground"
+                        android:textSize="14sp"
+                        android:fontFamily="sans-serif-black" />
+                    <TextView
+                        android:id="@+id/tvAchievementDesc"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="2dp"
+                        android:text="Verifikasi dokumen pertamamu!"
+                        android:textColor="@color/muted_foreground"
+                        android:textSize="11sp" />
+                    <!-- Progress bar -->
+                    <ProgressBar
+                        android:id="@+id/progressAchievement"
+                        style="@android:style/Widget.ProgressBar.Horizontal"
+                        android:layout_width="match_parent"
+                        android:layout_height="6dp"
+                        android:layout_marginTop="8dp"
+                        android:max="100"
+                        android:progress="0"
+                        android:progressTint="@color/warning"
+                        android:progressBackgroundTint="#E5E7EB" />
+                </LinearLayout>
+            </LinearLayout>
+        </com.google.android.material.card.MaterialCardView>
+
+        <!-- Pending Shortcut Card -->
+        <com.google.android.material.card.MaterialCardView
+            android:id="@+id/cardPending"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginHorizontal="20dp"
+            android:layout_marginTop="12dp"
+            app:cardBackgroundColor="@color/surface"
+            app:cardCornerRadius="16dp"
+            app:cardElevation="0dp"
+            app:strokeWidth="1dp"
+            app:strokeColor="@color/border">
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:gravity="center_vertical"
+                android:padding="16dp">
+                <FrameLayout
+                    android:layout_width="44dp"
+                    android:layout_height="44dp"
+                    android:background="@drawable/menu_icon_bg_warning">
+                    <ImageView
+                        android:layout_width="22dp"
+                        android:layout_height="22dp"
+                        android:layout_gravity="center"
+                        android:src="@drawable/ic_clock"
+                        app:tint="@color/warning" />
+                </FrameLayout>
+                <LinearLayout
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:orientation="vertical"
+                    android:layout_marginStart="14dp">
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="Dokumen Menunggu"
+                        android:textColor="@color/foreground"
+                        android:textSize="14sp"
+                        android:fontFamily="sans-serif-black" />
+                    <TextView
+                        android:id="@+id/tvPendingDesc"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="2dp"
+                        android:text="Tidak ada dokumen tertunda"
+                        android:textColor="@color/muted_foreground"
+                        android:textSize="11sp" />
+                </LinearLayout>
+                <TextView
+                    android:id="@+id/tvPendingBadge"
+                    android:layout_width="32dp"
+                    android:layout_height="32dp"
+                    android:gravity="center"
+                    android:text="0"
+                    android:textColor="@color/white"
+                    android:textSize="14sp"
+                    android:fontFamily="sans-serif-black"
+                    android:background="@drawable/bg_notification_dot" />
+            </LinearLayout>
+        </com.google.android.material.card.MaterialCardView>
 
         <!-- Recent Activity -->
         <LinearLayout
