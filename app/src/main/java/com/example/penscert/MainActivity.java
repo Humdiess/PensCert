@@ -17,7 +17,6 @@ import androidx.core.view.WindowInsetsCompat;
 import androidx.core.view.WindowInsetsControllerCompat;
 import androidx.fragment.app.Fragment;
 
-import com.google.android.material.floatingactionbutton.FloatingActionButton;
 import com.journeyapps.barcodescanner.ScanContract;
 import com.journeyapps.barcodescanner.ScanOptions;
 
@@ -75,8 +74,8 @@ public class MainActivity extends AppCompatActivity {
         navNotif.setOnClickListener(v -> switchFragment(notificationsFragment, 2));
         navProfile.setOnClickListener(v -> switchFragment(profileFragment, 3));
 
-        // FAB - QR Scanner
-        FloatingActionButton fabScan = findViewById(R.id.fabScan);
+        // QR Scan button (inside navbar, sejajar)
+        ImageView fabScan = findViewById(R.id.fabScan);
         fabScan.setOnClickListener(v -> {
             ScanOptions options = new ScanOptions();
             options.setDesiredBarcodeFormats(ScanOptions.QR_CODE);
@@ -95,9 +94,6 @@ public class MainActivity extends AppCompatActivity {
 
             // Navbar padding follows system inset
             bottomBar.setPadding(0, 0, 0, bottomInset);
-
-            // FAB shifts up to stay level with navbar
-            fabScan.setTranslationY(-bottomInset);
 
             return insets;
         });

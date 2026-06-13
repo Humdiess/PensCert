@@ -88,10 +88,24 @@
                 android:textSize="10sp" />
         </LinearLayout>
 
-        <!-- Space untuk QR -->
+        <!-- QR Scan Button (sejajar dengan nav items) -->
         <FrameLayout
             android:layout_width="84dp"
-            android:layout_height="match_parent" />
+            android:layout_height="match_parent">
+
+            <ImageView
+                android:id="@+id/fabScan"
+                android:layout_width="56dp"
+                android:layout_height="56dp"
+                android:layout_gravity="center"
+                android:background="@drawable/bg_qr_nav_button"
+                android:contentDescription="Scan QR"
+                android:padding="14dp"
+                android:src="@drawable/ic_qr_scan"
+                app:tint="@android:color/white"
+                android:clickable="true"
+                android:focusable="true" />
+        </FrameLayout>
 
         <!-- Notification -->
         <LinearLayout
@@ -154,24 +168,5 @@
         </LinearLayout>
 
     </LinearLayout>
-
-    <!-- Floating QR Button - sejajar (level) with navbar -->
-    <com.google.android.material.floatingactionbutton.FloatingActionButton
-        android:id="@+id/fabScan"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_gravity="bottom|center_horizontal"
-        android:layout_marginBottom="4dp"
-        android:translationZ="100dp"
-        android:elevation="24dp"
-        android:contentDescription="Scan QR"
-        android:src="@drawable/ic_qr_scan"
-        app:backgroundTint="@color/pens_blue"
-        app:borderWidth="4dp"
-        app:fabCustomSize="64dp"
-        app:maxImageSize="32dp"
-        app:tint="@android:color/white"
-        app:rippleColor="@color/white"/>
-
 
 </FrameLayout>
