@@ -1,0 +1,20 @@
+<resources xmlns:tools="http://schemas.android.com/tools">
+    <!-- Dark theme -->
+    <style name="Base.Theme.PensCert" parent="Theme.Material3.DayNight.NoActionBar">
+        <item name="android:windowBackground">@color/background</item>
+        <item name="colorPrimary">@color/primary</item>
+        <item name="colorOnPrimary">@color/white</item>
+        <item name="colorSecondaryContainer">@color/secondary</item>
+        <item name="colorOnSecondaryContainer">@color/secondary_foreground</item>
+
+        <item name="android:windowTranslucentStatus">false</item>
+        <item name="android:windowDrawsSystemBarBackgrounds">true</item>
+        <item name="android:navigationBarColor">@android:color/transparent</item>
+        <item name="android:windowLightStatusBar">false</item>
+        <item name="android:statusBarColor">@android:color/transparent</item>
+
+        <item name="materialButtonStyle">@style/Widget.PensCert.Button.Modern</item>
+        <item name="materialCardViewStyle">@style/Widget.PensCert.Card.Modern</item>
+        <item name="textInputStyle">@style/Widget.PensCert.TextInputLayout.Modern</item>
+    </style>
+</resources>

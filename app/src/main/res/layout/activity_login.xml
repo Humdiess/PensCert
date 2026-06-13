@@ -1,0 +1,252 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/foreground">
+
+    <!-- Dark gradient bg -->
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@drawable/hero_gradient_bg"
+        android:alpha="0.95" />
+
+    <!-- Decorative orbs -->
+    <View
+        android:layout_width="300dp"
+        android:layout_height="300dp"
+        android:layout_marginTop="-100dp"
+        android:layout_marginEnd="-100dp"
+        android:background="@drawable/accent_orb"
+        android:alpha="0.06"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintEnd_toEndOf="parent" />
+
+    <View
+        android:layout_width="200dp"
+        android:layout_height="200dp"
+        android:layout_marginBottom="60dp"
+        android:layout_marginStart="-60dp"
+        android:background="@drawable/accent_orb_soft"
+        android:alpha="0.1"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintStart_toStartOf="parent" />
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:fillViewport="true">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:gravity="center_horizontal"
+            android:paddingHorizontal="32dp"
+            android:paddingTop="80dp"
+            android:paddingBottom="40dp">
+
+            <!-- Brand -->
+            <com.google.android.material.card.MaterialCardView
+                android:layout_width="96dp"
+                android:layout_height="96dp"
+                app:cardCornerRadius="28dp"
+                app:cardElevation="0dp"
+                app:cardBackgroundColor="#1AFFFFFF"
+                app:strokeWidth="1dp"
+                app:strokeColor="#20FFFFFF">
+                <ImageView
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:padding="22dp"
+                    android:src="@drawable/ic_pens_doc"
+                    app:tint="@color/primary_light" />
+            </com.google.android.material.card.MaterialCardView>
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="24dp"
+                android:fontFamily="sans-serif-black"
+                android:text="PENS Cert"
+                android:textColor="@color/white"
+                android:textSize="32sp"
+                android:letterSpacing="-0.02" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="8dp"
+                android:text="Sistem Pengamanan Dokumen Digital"
+                android:textColor="#80FFFFFF"
+                android:textSize="14sp"
+                android:fontFamily="sans-serif-medium" />
+
+            <!-- Login Card -->
+            <com.google.android.material.card.MaterialCardView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="40dp"
+                app:cardCornerRadius="24dp"
+                app:cardElevation="0dp"
+                app:cardBackgroundColor="#12FFFFFF"
+                app:strokeWidth="1dp"
+                app:strokeColor="#15FFFFFF">
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical"
+                    android:padding="24dp">
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="Masuk ke Akun Anda"
+                        android:textColor="@color/white"
+                        android:textSize="20sp"
+                        android:fontFamily="sans-serif-black" />
+
+                    <!-- Role Selection -->
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="20dp"
+                        android:text="PERAN"
+                        android:textColor="#80FFFFFF"
+                        android:textSize="11sp"
+                        android:fontFamily="sans-serif-bold"
+                        android:letterSpacing="0.10" />
+
+                    <com.google.android.material.card.MaterialCardView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="8dp"
+                        app:cardCornerRadius="14dp"
+                        app:cardElevation="0dp"
+                        app:cardBackgroundColor="#0DFFFFFF"
+                        app:strokeWidth="1dp"
+                        app:strokeColor="#15FFFFFF">
+                        <RadioGroup
+                            android:id="@+id/rgRole"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:orientation="horizontal"
+                            android:padding="4dp">
+                            <RadioButton
+                                android:id="@+id/rbMahasiswa"
+                                android:layout_width="0dp"
+                                android:layout_height="wrap_content"
+                                android:layout_weight="1"
+                                android:text="Mahasiswa"
+                                android:textColor="#CCFFFFFF"
+                                android:buttonTint="@color/primary_light"
+                                android:checked="true" />
+                            <RadioButton
+                                android:id="@+id/rbDosen"
+                                android:layout_width="0dp"
+                                android:layout_height="wrap_content"
+                                android:layout_weight="1"
+                                android:text="Dosen"
+                                android:textColor="#CCFFFFFF"
+                                android:buttonTint="@color/primary_light" />
+                        </RadioGroup>
+                    </com.google.android.material.card.MaterialCardView>
+
+                    <!-- NIM/NIP -->
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="16dp"
+                        android:text="NIM / NIP"
+                        android:textColor="#80FFFFFF"
+                        android:textSize="11sp"
+                        android:fontFamily="sans-serif-bold"
+                        android:letterSpacing="0.10" />
+
+                    <com.google.android.material.textfield.TextInputLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="6dp"
+                        app:boxStrokeColor="#30FFFFFF"
+                        app:boxStrokeWidth="1dp"
+                        app:boxCornerRadiusTopStart="14dp"
+                        app:boxCornerRadiusTopEnd="14dp"
+                        app:boxCornerRadiusBottomStart="14dp"
+                        app:boxCornerRadiusBottomEnd="14dp"
+                        app:boxBackgroundColor="#0DFFFFFF"
+                        app:hintEnabled="false">
+                        <com.google.android.material.textfield.TextInputEditText
+                            android:id="@+id/etNimNip"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:hint="Masukkan NIM atau NIP"
+                            android:textColorHint="#60FFFFFF"
+                            android:textColor="@color/white"
+                            android:inputType="text"
+                            android:background="@android:color/transparent" />
+                    </com.google.android.material.textfield.TextInputLayout>
+
+                    <!-- Password -->
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="16dp"
+                        android:text="KATA SANDI"
+                        android:textColor="#80FFFFFF"
+                        android:textSize="11sp"
+                        android:fontFamily="sans-serif-bold"
+                        android:letterSpacing="0.10" />
+
+                    <com.google.android.material.textfield.TextInputLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="6dp"
+                        app:boxStrokeColor="#30FFFFFF"
+                        app:boxStrokeWidth="1dp"
+                        app:boxCornerRadiusTopStart="14dp"
+                        app:boxCornerRadiusTopEnd="14dp"
+                        app:boxCornerRadiusBottomStart="14dp"
+                        app:boxCornerRadiusBottomEnd="14dp"
+                        app:boxBackgroundColor="#0DFFFFFF"
+                        app:hintEnabled="false"
+                        app:endIconMode="password_toggle"
+                        app:endIconTint="#60FFFFFF">
+                        <com.google.android.material.textfield.TextInputEditText
+                            android:id="@+id/etPassword"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:hint="Masukkan kata sandi"
+                            android:textColorHint="#60FFFFFF"
+                            android:textColor="@color/white"
+                            android:inputType="textPassword"
+                            android:background="@android:color/transparent" />
+                    </com.google.android.material.textfield.TextInputLayout>
+
+                    <!-- Login Button -->
+                    <Button
+                        android:id="@+id/btnLogin"
+                        style="@style/Widget.PensCert.Button.Modern"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="24dp"
+                        android:text="Masuk"
+                        android:backgroundTint="@color/white"
+                        android:textColor="@color/primary" />
+
+                </LinearLayout>
+            </com.google.android.material.card.MaterialCardView>
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="24dp"
+                android:text="Versi 2.0 - Politeknik Elektronika Negeri Surabaya"
+                android:textColor="#40FFFFFF"
+                android:textSize="12sp"
+                android:fontFamily="sans-serif-medium" />
+
+        </LinearLayout>
+    </ScrollView>
+</androidx.constraintlayout.widget.ConstraintLayout>

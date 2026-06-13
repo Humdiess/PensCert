@@ -1,0 +1,242 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/foreground">
+
+    <!-- Full-screen dark gradient background -->
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@drawable/hero_gradient_bg"
+        android:alpha="0.95" />
+
+    <!-- Decorative orb top -->
+    <View
+        android:layout_width="280dp"
+        android:layout_height="280dp"
+        android:layout_marginTop="-80dp"
+        android:layout_marginEnd="-80dp"
+        android:background="@drawable/accent_orb"
+        android:alpha="0.08"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintEnd_toEndOf="parent" />
+
+    <!-- Decorative orb bottom -->
+    <View
+        android:layout_width="200dp"
+        android:layout_height="200dp"
+        android:layout_marginBottom="-40dp"
+        android:layout_marginStart="-60dp"
+        android:background="@drawable/accent_orb_soft"
+        android:alpha="0.15"
+        app:layout_constraintBottom_toTopOf="@id/bottomPanel"
+        app:layout_constraintStart_toStartOf="parent" />
+
+    <ViewFlipper
+        android:id="@+id/introFlipper"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintBottom_toTopOf="@id/bottomPanel">
+
+        <!-- Slide 1: Welcome -->
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:gravity="center"
+            android:orientation="vertical"
+            android:paddingHorizontal="40dp">
+
+            <com.google.android.material.card.MaterialCardView
+                android:layout_width="120dp"
+                android:layout_height="120dp"
+                app:cardCornerRadius="32dp"
+                app:cardElevation="0dp"
+                app:cardBackgroundColor="#1AFFFFFF"
+                app:strokeWidth="1dp"
+                app:strokeColor="#20FFFFFF">
+                <ImageView
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:padding="28dp"
+                    android:src="@drawable/ic_pens_doc"
+                    app:tint="@color/primary_light" />
+            </com.google.android.material.card.MaterialCardView>
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="36dp"
+                android:fontFamily="sans-serif-black"
+                android:text="PENS Cert"
+                android:textColor="@color/white"
+                android:textSize="36sp"
+                android:letterSpacing="-0.02" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="14dp"
+                android:gravity="center"
+                android:text="Sistem pengamanan dokumen digital kampus PENS yang modern dan terpercaya."
+                android:textColor="#99FFFFFF"
+                android:textSize="16sp"
+                android:lineSpacingMultiplier="1.4" />
+        </LinearLayout>
+
+        <!-- Slide 2: Digital Signing -->
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:gravity="center"
+            android:orientation="vertical"
+            android:paddingHorizontal="40dp">
+
+            <com.google.android.material.card.MaterialCardView
+                android:layout_width="100dp"
+                android:layout_height="100dp"
+                app:cardCornerRadius="28dp"
+                app:cardElevation="0dp"
+                app:cardBackgroundColor="#1AFFFFFF"
+                app:strokeWidth="1dp"
+                app:strokeColor="#20FFFFFF">
+                <ImageView
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:padding="24dp"
+                    android:src="@android:drawable/ic_menu_edit"
+                    app:tint="#FDE68A" />
+            </com.google.android.material.card.MaterialCardView>
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="32dp"
+                android:fontFamily="sans-serif-black"
+                android:text="Tanda Tangan Digital"
+                android:textColor="@color/white"
+                android:textSize="28sp"
+                android:letterSpacing="-0.01" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="14dp"
+                android:gravity="center"
+                android:text="Ajukan pengesahan dokumen ke dosen langsung dari aplikasi dengan mudah."
+                android:textColor="#99FFFFFF"
+                android:textSize="16sp"
+                android:lineSpacingMultiplier="1.4" />
+        </LinearLayout>
+
+        <!-- Slide 3: Verification -->
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:gravity="center"
+            android:orientation="vertical"
+            android:paddingHorizontal="40dp">
+
+            <com.google.android.material.card.MaterialCardView
+                android:layout_width="100dp"
+                android:layout_height="100dp"
+                app:cardCornerRadius="28dp"
+                app:cardElevation="0dp"
+                app:cardBackgroundColor="#1AFFFFFF"
+                app:strokeWidth="1dp"
+                app:strokeColor="#20FFFFFF">
+                <ImageView
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:padding="24dp"
+                    android:src="@android:drawable/ic_menu_camera"
+                    app:tint="#A7F3D0" />
+            </com.google.android.material.card.MaterialCardView>
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="32dp"
+                android:fontFamily="sans-serif-black"
+                android:text="Verifikasi Instan"
+                android:textColor="@color/white"
+                android:textSize="28sp"
+                android:letterSpacing="-0.01" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="14dp"
+                android:gravity="center"
+                android:text="Pastikan keaslian setiap dokumen dengan satu kali pindai kode QR."
+                android:textColor="#99FFFFFF"
+                android:textSize="16sp"
+                android:lineSpacingMultiplier="1.4" />
+        </LinearLayout>
+    </ViewFlipper>
+
+    <!-- Bottom Panel -->
+    <LinearLayout
+        android:id="@+id/bottomPanel"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:paddingHorizontal="32dp"
+        android:paddingBottom="40dp"
+        android:paddingTop="16dp"
+        app:layout_constraintBottom_toBottomOf="parent">
+
+        <!-- Page Indicators -->
+        <LinearLayout
+            android:id="@+id/pageIndicators"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:layout_marginBottom="28dp"
+            android:gravity="center"
+            android:orientation="horizontal">
+            <View
+                android:id="@+id/dot1"
+                android:layout_width="24dp"
+                android:layout_height="8dp"
+                android:layout_marginHorizontal="4dp"
+                android:background="@drawable/dot_active" />
+            <View
+                android:id="@+id/dot2"
+                android:layout_width="8dp"
+                android:layout_height="8dp"
+                android:layout_marginHorizontal="4dp"
+                android:background="@drawable/dot_inactive" />
+            <View
+                android:id="@+id/dot3"
+                android:layout_width="8dp"
+                android:layout_height="8dp"
+                android:layout_marginHorizontal="4dp"
+                android:background="@drawable/dot_inactive" />
+        </LinearLayout>
+
+        <Button
+            android:id="@+id/btnIntroAction"
+            style="@style/Widget.PensCert.Button.Modern"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Lanjut"
+            android:backgroundTint="@color/white"
+            android:textColor="@color/primary" />
+
+        <TextView
+            android:id="@+id/btnSkipIntro"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:layout_marginTop="16dp"
+            android:padding="8dp"
+            android:text="Lewati perkenalan"
+            android:textColor="#80FFFFFF"
+            android:textSize="14sp"
+            android:fontFamily="sans-serif-medium" />
+    </LinearLayout>
+
+</androidx.constraintlayout.widget.ConstraintLayout>

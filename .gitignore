@@ -1,0 +1,57 @@
+# ===== Built Outputs =====
+*.apk
+*.ap_
+*.aab
+*.dex
+*.class
+
+# ===== Build Directories =====
+/build
+/captures
+/app/build
+*.iml
+
+# ===== Gradle =====
+.gradle/
+gradle-app.setting
+!gradle-wrapper.jar
+!**/src/main/**/build/
+!**/src/test/**/build/
+
+# ===== IDE - Android Studio / IntelliJ =====
+/.idea/
+*.iws
+*.ipr
+/out
+/**/workspace.xml
+/**/tasks.xml
+/dictionaries
+/inspectionProfiles
+
+# ===== Local Config =====
+/local.properties
+*.log
+
+# ===== JVM Crash Logs =====
+hs_err_pid*.log
+replay_pid*.log
+java_pid*.log
+
+# ===== OS =====
+.DS_Store
+Thumbs.db
+desktop.ini
+
+# ===== Native Build =====
+.externalNativeBuild/
+.cxx/
+
+# ===== Signing =====
+*.jks
+*.keystore
+
+# ===== Misc =====
+*.tmp
+*.bak
+*.swp
+*~

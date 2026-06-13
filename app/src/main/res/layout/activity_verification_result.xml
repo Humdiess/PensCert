@@ -1,0 +1,360 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/background">
+
+    <androidx.core.widget.NestedScrollView
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:clipToPadding="false"
+        android:paddingBottom="24dp"
+        app:layout_constraintBottom_toTopOf="@+id/bottomContainer"
+        app:layout_constraintTop_toTopOf="parent">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
+
+            <!-- Hero Status Section -->
+            <FrameLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+
+                <View
+                    android:layout_width="match_parent"
+                    android:layout_height="220dp"
+                    android:background="@drawable/hero_gradient_bg" />
+
+                <!-- Decorative orb -->
+                <View
+                    android:layout_width="200dp"
+                    android:layout_height="200dp"
+                    android:layout_gravity="center"
+                    android:layout_marginTop="20dp"
+                    android:background="@drawable/accent_orb"
+                    android:alpha="0.06" />
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical"
+                    android:paddingHorizontal="24dp"
+                    android:paddingTop="76dp"
+                    android:gravity="center_horizontal">
+
+                    <!-- Status Badge — floating pill on dark bg -->
+                    <com.google.android.material.card.MaterialCardView
+                        android:id="@+id/statusBadge"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center"
+                        app:cardCornerRadius="24dp"
+                        app:cardElevation="0dp"
+                        app:cardBackgroundColor="#1AFFFFFF"
+                        app:strokeWidth="1dp"
+                        app:strokeColor="#20FFFFFF">
+                        <LinearLayout
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:gravity="center"
+                            android:orientation="horizontal"
+                            android:paddingHorizontal="22dp"
+                            android:paddingVertical="12dp">
+                            <ImageView
+                                android:id="@+id/ivStatusIcon"
+                                android:layout_width="22dp"
+                                android:layout_height="22dp"
+                                android:src="@drawable/ic_verified"
+                                app:tint="@color/white" />
+                            <TextView
+                                android:id="@+id/tvStatusBadge"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_marginStart="10dp"
+                                android:fontFamily="sans-serif-black"
+                                android:text="TERVERIFIKASI"
+                                android:textColor="@color/white"
+                                android:textSize="14sp"
+                                android:letterSpacing="0.04" />
+                        </LinearLayout>
+                    </com.google.android.material.card.MaterialCardView>
+
+                    <!-- Title -->
+                    <TextView
+                        android:id="@+id/tvDocTitle"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="20dp"
+                        android:fontFamily="sans-serif-black"
+                        android:text="Detail Dokumen"
+                        android:textAlignment="center"
+                        android:textColor="@color/white"
+                        android:textSize="30sp"
+                        android:letterSpacing="-0.02" />
+
+                    <TextView
+                        android:id="@+id/tvIssuedDate"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="6dp"
+                        android:text="Diterbitkan oleh PENS"
+                        android:textAlignment="center"
+                        android:textColor="#80FFFFFF"
+                        android:textSize="14sp"
+                        android:fontFamily="sans-serif-medium" />
+                </LinearLayout>
+            </FrameLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                android:paddingHorizontal="20dp"
+                android:paddingTop="24dp">
+
+                <!-- Main Info Card -->
+                <com.google.android.material.card.MaterialCardView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    app:cardBackgroundColor="@color/surface"
+                    app:cardCornerRadius="20dp"
+                    app:cardElevation="4dp"
+                    app:strokeWidth="1dp"
+                    app:strokeColor="@color/border">
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:orientation="vertical"
+                        android:padding="22dp">
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="NAMA PEMILIK"
+                            android:textColor="@color/muted_foreground"
+                            android:textSize="11sp"
+                            android:fontFamily="sans-serif-bold"
+                            android:letterSpacing="0.08" />
+                        <TextView
+                            android:id="@+id/tvName"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginTop="6dp"
+                            android:text="Budi Santoso"
+                            android:textColor="@color/foreground"
+                            android:textSize="20sp"
+                            android:fontFamily="sans-serif-black" />
+
+                        <!-- Absen Section -->
+                        <LinearLayout
+                            android:id="@+id/layoutVerifyAbsen"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:orientation="vertical"
+                            android:visibility="gone">
+                            <View
+                                android:layout_width="match_parent"
+                                android:layout_height="1dp"
+                                android:layout_marginVertical="18dp"
+                                android:background="@color/divider" />
+
+                            <TextView
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:text="MATA KULIAH"
+                                android:textColor="@color/muted_foreground"
+                                android:textSize="11sp"
+                                android:fontFamily="sans-serif-bold"
+                                android:letterSpacing="0.08" />
+                            <TextView
+                                android:id="@+id/tvVerifyMatkul"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_marginTop="6dp"
+                                android:text="Pemrograman Mobile"
+                                android:textColor="@color/foreground"
+                                android:textSize="16sp"
+                                android:fontFamily="sans-serif-medium" />
+
+                            <TextView
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_marginTop="14dp"
+                                android:text="TANGGAL"
+                                android:textColor="@color/muted_foreground"
+                                android:textSize="11sp"
+                                android:fontFamily="sans-serif-bold"
+                                android:letterSpacing="0.08" />
+                            <TextView
+                                android:id="@+id/tvVerifyTanggal"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_marginTop="6dp"
+                                android:text="20/05/2024"
+                                android:textColor="@color/foreground"
+                                android:textSize="16sp"
+                                android:fontFamily="sans-serif-medium" />
+                        </LinearLayout>
+
+                        <View
+                            android:layout_width="match_parent"
+                            android:layout_height="1dp"
+                            android:layout_marginVertical="18dp"
+                            android:background="@color/divider" />
+
+                        <LinearLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:orientation="horizontal">
+                            <LinearLayout
+                                android:layout_width="0dp"
+                                android:layout_height="wrap_content"
+                                android:layout_weight="1"
+                                android:orientation="vertical">
+                                <TextView
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:text="ID DOKUMEN"
+                                    android:textColor="@color/muted_foreground"
+                                    android:textSize="11sp"
+                                    android:fontFamily="sans-serif-bold"
+                                    android:letterSpacing="0.08" />
+                                <TextView
+                                    android:id="@+id/tvCertId"
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:layout_marginTop="6dp"
+                                    android:text="CERT-A001"
+                                    android:textColor="@color/primary"
+                                    android:textSize="14sp"
+                                    android:fontFamily="sans-serif-bold" />
+                            </LinearLayout>
+                            <LinearLayout
+                                android:layout_width="0dp"
+                                android:layout_height="wrap_content"
+                                android:layout_weight="1"
+                                android:orientation="vertical">
+                                <TextView
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:text="PERAN"
+                                    android:textColor="@color/muted_foreground"
+                                    android:textSize="11sp"
+                                    android:fontFamily="sans-serif-bold"
+                                    android:letterSpacing="0.08" />
+                                <TextView
+                                    android:id="@+id/tvRole"
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:layout_marginTop="6dp"
+                                    android:text="Mahasiswa"
+                                    android:textColor="@color/foreground"
+                                    android:textSize="15sp"
+                                    android:fontFamily="sans-serif-medium" />
+                            </LinearLayout>
+                        </LinearLayout>
+                    </LinearLayout>
+                </com.google.android.material.card.MaterialCardView>
+
+                <!-- Cryptography info -->
+                <com.google.android.material.card.MaterialCardView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="12dp"
+                    app:cardBackgroundColor="@color/surface"
+                    app:cardCornerRadius="20dp"
+                    app:cardElevation="2dp"
+                    app:strokeWidth="1dp"
+                    app:strokeColor="@color/border">
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:orientation="vertical"
+                        android:padding="22dp">
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="SHA-256 FINGERPRINT"
+                            android:textColor="@color/muted_foreground"
+                            android:textSize="10sp"
+                            android:fontFamily="sans-serif-bold"
+                            android:letterSpacing="0.08" />
+                        <TextView
+                            android:id="@+id/tvHash"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_marginTop="6dp"
+                            android:ellipsize="middle"
+                            android:singleLine="true"
+                            android:textColor="@color/primary"
+                            android:fontFamily="monospace"
+                            android:textSize="11sp" />
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginTop="14dp"
+                            android:text="RSA DIGITAL SIGNATURE"
+                            android:textColor="@color/muted_foreground"
+                            android:textSize="10sp"
+                            android:fontFamily="sans-serif-bold"
+                            android:letterSpacing="0.08" />
+                        <TextView
+                            android:id="@+id/tvSignature"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_marginTop="6dp"
+                            android:ellipsize="end"
+                            android:maxLines="2"
+                            android:textColor="@color/primary"
+                            android:fontFamily="monospace"
+                            android:textSize="11sp" />
+                    </LinearLayout>
+                </com.google.android.material.card.MaterialCardView>
+
+            </LinearLayout>
+        </LinearLayout>
+    </androidx.core.widget.NestedScrollView>
+
+    <!-- Bottom Actions -->
+    <LinearLayout
+        android:id="@+id/bottomContainer"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:paddingHorizontal="20dp"
+        android:paddingVertical="16dp"
+        android:background="@color/glass_bg"
+        app:layout_constraintBottom_toBottomOf="parent">
+        <Button
+            android:id="@+id/btnViewPdf"
+            style="@style/Widget.PensCert.Button.Modern"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Lihat Dokumen PDF" />
+        <Button
+            android:id="@+id/btnShare"
+            style="@style/Widget.PensCert.Button.Modern"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="10dp"
+            android:backgroundTint="@color/surface"
+            android:textColor="@color/primary"
+            android:text="Bagikan Sertifikat"
+            app:strokeColor="@color/border"
+            app:strokeWidth="1dp" />
+        <Button
+            android:id="@+id/btnBack"
+            style="@style/Widget.PensCert.Button.Modern"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="8dp"
+            android:backgroundTint="@android:color/transparent"
+            android:textColor="@color/muted_foreground"
+            android:text="Tutup" />
+    </LinearLayout>
+
+</androidx.constraintlayout.widget.ConstraintLayout>

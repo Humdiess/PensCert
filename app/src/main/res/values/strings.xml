@@ -1,0 +1,53 @@
+<resources>
+    <string name="app_name">PENS Cert</string>
+    <string name="home_welcome">Halo, Selamat Datang</string>
+    <string name="home_title">PENS Cert</string>
+    <string name="home_subtitle">Layanan Dokumen Digital PENS</string>
+    <string name="stats_title">Ringkasan Dokumen</string>
+    <string name="stats_valid">Valid</string>
+    <string name="stats_pending">Menunggu</string>
+
+    <string name="quick_verify_title">VERIFIKASI CEPAT</string>
+    <string name="search_hint">Cari ID Dokumen...</string>
+    <string name="btn_verify">Cek</string>
+
+    <string name="main_services_title">LAYANAN UTAMA</string>
+    <string name="menu_scan">Pindai QR</string>
+    <string name="menu_request">Ajukan TTD</string>
+    <string name="menu_my_docs">Surat Saya</string>
+    <string name="menu_admin">Admin</string>
+
+    <string name="nav_home">Beranda</string>
+    <string name="nav_notif">Notifikasi</string>
+    <string name="nav_history">Riwayat</string>
+    <string name="nav_profile">Profil</string>
+
+    <!-- Request Page -->
+    <string name="apply_title">Ajukan Tanda Tangan</string>
+    <string name="apply_subtitle">Unggah dokumen Anda untuk ditandatangani secara digital oleh dosen.</string>
+    <string name="hint_name">Nama Lengkap</string>
+    <string name="hint_role">Jabatan / Peran (cth: Mahasiswa)</string>
+    <string name="hint_doc_type">Jenis Dokumen (cth: Surat Keterangan)</string>
+    <string name="hint_signer">Tujuan Tanda Tangan (Dosen)</string>
+    <string name="select_pdf">Pilih File PDF</string>
+    <string name="submit_req">Kirim Pengajuan</string>
+    <string name="cancel">Batal</string>
+    <string name="loading">Memproses data...</string>
+
+    <!-- Admin Page -->
+    <string name="admin_title">Panel Admin</string>
+    <string name="admin_subtitle">Kelola verifikasi dan pengajuan dokumen</string>
+    <string name="admin_pending_list">Antrean Persetujuan</string>
+    <string name="admin_empty_list">Tidak ada pengajuan tertunda</string>
+    <string name="btn_approve">Setujui &amp; TTD</string>
+    <string name="btn_reject">Tolak</string>
+
+    <!-- Verification Result -->
+    <string name="verify_result_title">Hasil Verifikasi</string>
+    <string name="verify_status_valid">TERVERIFIKASI RESMI</string>
+    <string name="verify_status_invalid">TIDAK VALID / DICABUT</string>
+    <string name="doc_details">Detail Dokumen</string>
+    <string name="issued_on">Diterbitkan pada</string>
+    <string name="btn_view_pdf">Lihat Dokumen</string>
+    <string name="btn_share">Bagikan</string>
+</resources>

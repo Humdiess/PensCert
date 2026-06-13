@@ -1,0 +1,21 @@
+<vector xmlns:android="http://schemas.android.com/apk/res/android"
+    android:width="1024dp"
+    android:height="1024dp"
+    android:viewportWidth="100"
+    android:viewportHeight="100">
+    <!-- Clean Shadcn-like Shield/Doc icon -->
+    <path
+        android:fillColor="#020817"
+        android:pathData="M25,15C22.239,15 20,17.239 20,20V80C20,82.761 22.239,85 25,85H75C77.761,85 80,82.761 80,80V35L60,15H25Z" />
+    <path
+        android:fillColor="#FFFFFF"
+        android:pathData="M60,15V35H80L60,15Z"
+        android:fillAlpha="0.2" />
+    <path
+        android:fillColor="#FFFFFF"
+        android:pathData="M35,65L45,75L65,45"
+        android:strokeWidth="5"
+        android:strokeColor="#FFFFFF"
+        android:strokeLineCap="round"
+        android:strokeLineJoin="round" />
+</vector>

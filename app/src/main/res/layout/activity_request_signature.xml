@@ -1,0 +1,527 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/background">
+
+    <!-- Hero Header with Progress -->
+    <FrameLayout
+        android:id="@+id/headerFrame"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        app:layout_constraintTop_toTopOf="parent">
+
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="180dp"
+            android:background="@drawable/hero_gradient_bg" />
+
+        <View
+            android:layout_width="140dp"
+            android:layout_height="140dp"
+            android:layout_gravity="top|end"
+            android:layout_marginTop="-30dp"
+            android:layout_marginEnd="-30dp"
+            android:background="@drawable/accent_orb"
+            android:alpha="0.08" />
+
+        <LinearLayout
+            android:id="@+id/header"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:paddingHorizontal="24dp"
+            android:paddingTop="76dp"
+            android:paddingBottom="24dp">
+
+            <TextView
+                android:id="@+id/tvStepTitle"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:fontFamily="sans-serif-bold"
+                android:text="Langkah 1 dari 3"
+                android:textColor="#99D6F4"
+                android:textSize="12sp"
+                android:letterSpacing="0.10" />
+
+            <TextView
+                android:id="@+id/tvMainTitle"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="4dp"
+                android:fontFamily="sans-serif-black"
+                android:text="Informasi Dasar"
+                android:textColor="@color/white"
+                android:textSize="30sp"
+                android:letterSpacing="-0.02" />
+
+            <com.google.android.material.progressindicator.LinearProgressIndicator
+                android:id="@+id/stepProgress"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="14dp"
+                android:progress="33"
+                app:trackThickness="4dp"
+                app:trackCornerRadius="10dp"
+                app:trackColor="@color/primary_light"
+                app:indicatorColor="@color/white" />
+        </LinearLayout>
+    </FrameLayout>
+
+    <ViewFlipper
+        android:id="@+id/viewFlipper"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        app:layout_constraintTop_toBottomOf="@id/headerFrame"
+        app:layout_constraintBottom_toTopOf="@id/bottomActions">
+
+        <!-- STEP 1: Basic Info -->
+        <ScrollView
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                android:paddingHorizontal="20dp">
+
+                <TextView
+                    style="@style/Text.PensCert.Label"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="12dp"
+                    android:text="IDENTITAS PENGGUNA" />
+
+                <com.google.android.material.card.MaterialCardView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="8dp"
+                    app:cardBackgroundColor="@color/surface"
+                    app:cardCornerRadius="16dp"
+                    app:cardElevation="0dp"
+                    app:strokeWidth="1dp"
+                    app:strokeColor="@color/border">
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:orientation="vertical"
+                        android:padding="4dp">
+                        <com.google.android.material.textfield.TextInputLayout
+                            style="@style/Widget.PensCert.TextInputLayout.Modern"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            app:boxStrokeWidth="0dp"
+                            app:boxStrokeWidthFocused="0dp"
+                            android:hint="Nama Lengkap">
+                            <com.google.android.material.textfield.TextInputEditText
+                                android:id="@+id/etReqName"
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:background="@android:color/transparent" />
+                        </com.google.android.material.textfield.TextInputLayout>
+                        <View
+                            android:layout_width="match_parent"
+                            android:layout_height="0.5dp"
+                            android:layout_marginHorizontal="16dp"
+                            android:background="@color/divider" />
+                        <com.google.android.material.textfield.TextInputLayout
+                            style="@style/Widget.PensCert.TextInputLayout.Modern"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            app:boxStrokeWidth="0dp"
+                            app:boxStrokeWidthFocused="0dp"
+                            android:hint="Jabatan / Peran">
+                            <com.google.android.material.textfield.TextInputEditText
+                                android:id="@+id/etReqRole"
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:background="@android:color/transparent" />
+                        </com.google.android.material.textfield.TextInputLayout>
+                    </LinearLayout>
+                </com.google.android.material.card.MaterialCardView>
+
+                <TextView
+                    style="@style/Text.PensCert.Label"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="20dp"
+                    android:text="JENIS SURAT" />
+
+                <com.google.android.material.card.MaterialCardView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="8dp"
+                    app:cardBackgroundColor="@color/surface"
+                    app:cardCornerRadius="16dp"
+                    app:cardElevation="0dp"
+                    app:strokeWidth="1dp"
+                    app:strokeColor="@color/border">
+                    <RadioGroup
+                        android:id="@+id/rgDocType"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:padding="8dp">
+                        <RadioButton
+                            android:id="@+id/rbUmum"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:text="Surat Umum"
+                            android:checked="true" />
+                        <RadioButton
+                            android:id="@+id/rbAbsen"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:text="Surat Keterangan Absen" />
+                    </RadioGroup>
+                </com.google.android.material.card.MaterialCardView>
+
+                <LinearLayout
+                    android:id="@+id/layoutAbsenExtra"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical"
+                    android:visibility="gone">
+                    <com.google.android.material.card.MaterialCardView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="10dp"
+                        app:cardBackgroundColor="@color/surface"
+                        app:cardCornerRadius="16dp"
+                        app:cardElevation="0dp"
+                        app:strokeWidth="1dp"
+                        app:strokeColor="@color/border">
+                        <LinearLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:orientation="vertical"
+                            android:padding="4dp">
+                            <com.google.android.material.textfield.TextInputLayout
+                                style="@style/Widget.PensCert.TextInputLayout.Modern"
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                app:boxStrokeWidth="0dp"
+                                app:boxStrokeWidthFocused="0dp"
+                                android:hint="Nama Mata Kuliah">
+                                <com.google.android.material.textfield.TextInputEditText
+                                    android:id="@+id/etMatkul"
+                                    android:layout_width="match_parent"
+                                    android:layout_height="wrap_content"
+                                    android:background="@android:color/transparent" />
+                            </com.google.android.material.textfield.TextInputLayout>
+                            <View
+                                android:layout_width="match_parent"
+                                android:layout_height="0.5dp"
+                                android:layout_marginHorizontal="16dp"
+                                android:background="@color/divider" />
+                            <com.google.android.material.textfield.TextInputLayout
+                                style="@style/Widget.PensCert.TextInputLayout.Modern"
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                app:boxStrokeWidth="0dp"
+                                app:boxStrokeWidthFocused="0dp"
+                                android:hint="Tanggal Matkul (DD/MM/YYYY)">
+                                <com.google.android.material.textfield.TextInputEditText
+                                    android:id="@+id/etTglMatkul"
+                                    android:layout_width="match_parent"
+                                    android:layout_height="wrap_content"
+                                    android:background="@android:color/transparent"
+                                    android:focusable="false"
+                                    android:clickable="true" />
+                            </com.google.android.material.textfield.TextInputLayout>
+                        </LinearLayout>
+                    </com.google.android.material.card.MaterialCardView>
+                </LinearLayout>
+            </LinearLayout>
+        </ScrollView>
+
+        <!-- STEP 2: Signer & File -->
+        <ScrollView
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                android:paddingHorizontal="20dp">
+
+                <TextView
+                    style="@style/Text.PensCert.Label"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="12dp"
+                    android:text="TUJUAN TANDA TANGAN" />
+
+                <com.google.android.material.card.MaterialCardView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="8dp"
+                    app:cardBackgroundColor="@color/surface"
+                    app:cardCornerRadius="16dp"
+                    app:cardElevation="0dp"
+                    app:strokeWidth="1dp"
+                    app:strokeColor="@color/border">
+                    <com.google.android.material.textfield.TextInputLayout
+                        style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox.ExposedDropdownMenu"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        app:boxStrokeWidth="0dp"
+                        app:boxStrokeWidthFocused="0dp"
+                        android:hint="Pilih Dosen Penandatangan">
+                        <AutoCompleteTextView
+                            android:id="@+id/actvSigner"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:inputType="none"
+                            android:background="@android:color/transparent"
+                            android:paddingVertical="16dp" />
+                    </com.google.android.material.textfield.TextInputLayout>
+                </com.google.android.material.card.MaterialCardView>
+
+                <TextView
+                    style="@style/Text.PensCert.Label"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="20dp"
+                    android:text="FILE DOKUMEN" />
+
+                <com.google.android.material.card.MaterialCardView
+                    android:id="@+id/btnSelectPdf"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="8dp"
+                    android:clickable="true"
+                    android:focusable="true"
+                    app:cardBackgroundColor="@color/surface"
+                    app:cardCornerRadius="16dp"
+                    app:cardElevation="0dp"
+                    app:strokeWidth="1dp"
+                    app:strokeColor="@color/border">
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:gravity="center_vertical"
+                        android:padding="18dp">
+                        <FrameLayout
+                            android:layout_width="40dp"
+                            android:layout_height="40dp"
+                            android:background="@drawable/menu_icon_bg_primary">
+                            <ImageView
+                                android:layout_width="20dp"
+                                android:layout_height="20dp"
+                                android:layout_gravity="center"
+                                android:src="@android:drawable/ic_menu_upload"
+                                app:tint="@color/primary" />
+                        </FrameLayout>
+                        <TextView
+                            android:id="@+id/tvFileName"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginStart="14dp"
+                            android:text="Unggah PDF Dokumen"
+                            android:textColor="@color/foreground"
+                            android:textSize="14sp"
+                            android:fontFamily="sans-serif-medium" />
+                    </LinearLayout>
+                </com.google.android.material.card.MaterialCardView>
+            </LinearLayout>
+        </ScrollView>
+
+        <!-- STEP 3: Summary -->
+        <ScrollView
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                android:paddingHorizontal="20dp">
+
+                <TextView
+                    style="@style/Text.PensCert.Label"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="12dp"
+                    android:text="TINJAU KEMBALI" />
+
+                <com.google.android.material.card.MaterialCardView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="8dp"
+                    app:cardBackgroundColor="@color/surface"
+                    app:cardCornerRadius="16dp"
+                    app:cardElevation="0dp"
+                    app:strokeWidth="1dp"
+                    app:strokeColor="@color/border">
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:orientation="vertical"
+                        android:padding="16dp">
+
+                        <LinearLayout
+                            android:id="@+id/summaryIdentity"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:orientation="vertical"
+                            android:clickable="true"
+                            android:background="?attr/selectableItemBackground"
+                            android:padding="4dp">
+                            <TextView
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:text="Penerima"
+                                android:textColor="@color/muted_foreground"
+                                android:textSize="11sp"
+                                android:fontFamily="sans-serif-bold" />
+                            <TextView
+                                android:id="@+id/tvSumName"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_marginTop="2dp"
+                                android:text="-"
+                                android:textColor="@color/foreground"
+                                android:textSize="15sp"
+                                android:fontFamily="sans-serif-medium" />
+                        </LinearLayout>
+
+                        <View
+                            android:layout_width="match_parent"
+                            android:layout_height="0.5dp"
+                            android:layout_marginVertical="10dp"
+                            android:background="@color/divider" />
+
+                        <LinearLayout
+                            android:id="@+id/summaryDoc"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:orientation="vertical"
+                            android:clickable="true"
+                            android:background="?attr/selectableItemBackground"
+                            android:padding="4dp">
+                            <TextView
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:text="Jenis &amp; Detail Surat"
+                                android:textColor="@color/muted_foreground"
+                                android:textSize="11sp"
+                                android:fontFamily="sans-serif-bold" />
+                            <TextView
+                                android:id="@+id/tvSumDoc"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_marginTop="2dp"
+                                android:text="-"
+                                android:textColor="@color/foreground"
+                                android:textSize="15sp"
+                                android:fontFamily="sans-serif-medium" />
+                        </LinearLayout>
+
+                        <View
+                            android:layout_width="match_parent"
+                            android:layout_height="0.5dp"
+                            android:layout_marginVertical="10dp"
+                            android:background="@color/divider" />
+
+                        <LinearLayout
+                            android:id="@+id/summarySigner"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:orientation="vertical"
+                            android:clickable="true"
+                            android:background="?attr/selectableItemBackground"
+                            android:padding="4dp">
+                            <TextView
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:text="Dosen Penandatangan"
+                                android:textColor="@color/muted_foreground"
+                                android:textSize="11sp"
+                                android:fontFamily="sans-serif-bold" />
+                            <TextView
+                                android:id="@+id/tvSumSigner"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_marginTop="2dp"
+                                android:text="-"
+                                android:textColor="@color/foreground"
+                                android:textSize="15sp"
+                                android:fontFamily="sans-serif-medium" />
+                        </LinearLayout>
+                    </LinearLayout>
+                </com.google.android.material.card.MaterialCardView>
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="12dp"
+                    android:text="* Pastikan semua data sudah benar. Klik pada bagian data untuk mengubah."
+                    android:textColor="@color/muted_foreground"
+                    android:textSize="12sp"
+                    android:fontFamily="sans-serif-medium" />
+            </LinearLayout>
+        </ScrollView>
+    </ViewFlipper>
+
+    <!-- Bottom Actions -->
+    <LinearLayout
+        android:id="@+id/bottomActions"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:paddingHorizontal="20dp"
+        android:paddingVertical="16dp"
+        android:background="@color/glass_bg"
+        app:layout_constraintBottom_toBottomOf="parent">
+
+        <LinearLayout
+            android:id="@+id/loadingLayout"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:layout_marginBottom="12dp"
+            android:gravity="center"
+            android:orientation="horizontal"
+            android:visibility="gone">
+            <ProgressBar
+                android:layout_width="18dp"
+                android:layout_height="18dp"
+                android:layout_marginEnd="10dp" />
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Mengirim Pengajuan..."
+                android:textColor="@color/muted_foreground"
+                android:textSize="13sp" />
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal">
+
+            <Button
+                android:id="@+id/btnBack"
+                style="@style/Widget.PensCert.Button.Modern"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:layout_marginEnd="8dp"
+                android:text="Kembali"
+                android:backgroundTint="@color/surface"
+                android:textColor="@color/muted_foreground"
+                app:strokeColor="@color/border"
+                app:strokeWidth="1dp" />
+
+            <Button
+                android:id="@+id/btnNext"
+                style="@style/Widget.PensCert.Button.Modern"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1.5"
+                android:layout_marginStart="8dp"
+                android:text="Lanjut" />
+        </LinearLayout>
+    </LinearLayout>
+
+</androidx.constraintlayout.widget.ConstraintLayout>

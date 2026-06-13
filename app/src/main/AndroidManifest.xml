@@ -1,0 +1,57 @@
+<?xml version="1.0" encoding="utf-8"?>
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <uses-permission android:name="android.permission.INTERNET" />
+    <uses-permission android:name="android.permission.CAMERA" />
+    <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE" />
+
+    <application
+        android:allowBackup="true"
+        android:dataExtractionRules="@xml/data_extraction_rules"
+        android:fullBackupContent="@xml/backup_rules"
+        android:icon="@drawable/ic_pens_doc"
+        android:label="@string/app_name"
+        android:roundIcon="@drawable/ic_pens_doc"
+        android:supportsRtl="true"
+        android:theme="@style/Theme.PensCert">
+
+        <activity
+            android:name=".LoginActivity"
+            android:exported="true">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
+
+        <activity
+            android:name=".IntroActivity"
+            android:exported="false" />
+
+        <activity
+            android:name=".MainActivity"
+            android:exported="false"
+            android:windowSoftInputMode="adjustResize" />
+
+        <activity android:name=".DocumentDetailActivity" android:exported="false" />
+        <activity android:name=".RevocationActivity" android:exported="false" />
+        <activity android:name=".VerifyInputActivity" android:exported="false" />
+        <activity android:name=".AdminActivity" android:exported="false" />
+        <activity android:name=".VerificationResultActivity" android:exported="false" />
+        <activity android:name=".CreateCertificateActivity" android:exported="false" />
+        <activity android:name=".RequestSignatureActivity" android:exported="false" />
+        <activity android:name=".MyRequestsActivity" android:exported="false" />
+        <activity android:name=".AdminRequestsActivity" android:exported="false" />
+        <activity android:name=".SetQrPositionActivity" android:exported="false" />
+        <activity android:name=".ScanQrActivity" android:exported="false" android:screenOrientation="portrait" android:theme="@style/Theme.PensCert" />
+        <activity
+            android:name=".CaptureActivityPortrait"
+            android:screenOrientation="portrait"
+            android:stateNotNeeded="true"
+            android:theme="@style/zxing_CaptureTheme"
+            android:windowSoftInputMode="stateAlwaysHidden" />
+
+    </application>
+
+</manifest>

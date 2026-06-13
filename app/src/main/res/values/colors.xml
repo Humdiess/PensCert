@@ -1,0 +1,117 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <!-- PENS Official Brand -->
+    <color name="pens_blue">#00AEEF</color>
+    <color name="pens_gold">#FDB813</color>
+    <color name="pens_grey">#808080</color>
+
+    <!-- Core Palette (shadcn-inspired neutral scale) -->
+    <color name="background">#FAFAFA</color>
+    <color name="foreground">#09090B</color>
+
+    <color name="primary">#00AEEF</color>
+    <color name="primary_light">#66CFF6</color>
+    <color name="primary_dark">#0089BD</color>
+    <color name="primary_surface">#E8F7FE</color>
+    <color name="primary_glow">#1A00AEEF</color>
+
+    <!-- Gold Accent -->
+    <color name="accent_teal">#FDB813</color>
+    <color name="accent_teal_light">#FEF3C7</color>
+    <color name="accent_teal_dark">#E5A00D</color>
+
+    <!-- Glass Effects -->
+    <color name="glass_bg">#C8FFFFFF</color>
+    <color name="glass_stroke">#15000000</color>
+    <color name="glass_card">#F5FFFFFF</color>
+
+    <!-- Neutral scale (zinc-inspired, shadcn default) -->
+    <color name="secondary">#F4F4F5</color>
+    <color name="secondary_foreground">#18181B</color>
+
+    <color name="muted">#F4F4F5</color>
+    <color name="muted_foreground">#71717A</color>
+
+    <color name="destructive">#EF4444</color>
+    <color name="destructive_light">#FEE2E2</color>
+    <color name="success">#22C55E</color>
+    <color name="success_light">#DCFCE7</color>
+    <color name="warning">#F59E0B</color>
+    <color name="warning_light">#FEF3C7</color>
+    <color name="info">#0EA5E9</color>
+    <color name="info_light">#E0F2FE</color>
+
+    <color name="border">#E4E4E7</color>
+    <color name="divider">#F4F4F5</color>
+
+    <color name="black">#FF000000</color>
+    <color name="white">#FFFFFFFF</color>
+
+    <!-- Hero Gradient (PENS deep navy → PENS blue) -->
+    <color name="gradient_primary_start">#004466</color>
+    <color name="gradient_primary_mid">#007BA7</color>
+    <color name="gradient_primary_end">#00AEEF</color>
+
+    <color name="gradient_hero_start">#001B2E</color>
+    <color name="gradient_hero_mid">#003D5C</color>
+    <color name="gradient_hero_end">#0077A3</color>
+
+    <color name="gradient_accent_start">#FDB813</color>
+    <color name="gradient_accent_end">#F59E0B</color>
+
+    <!-- Teal Gradient → Gold Gradient -->
+    <color name="gradient_teal_start">#FDB813</color>
+    <color name="gradient_teal_end">#F59E0B</color>
+
+    <!-- Surface Colors -->
+    <color name="surface">#FFFFFF</color>
+    <color name="surface_variant">#FAFAFA</color>
+    <color name="surface_elevated">#FFFFFF</color>
+
+    <!-- Nav Colors -->
+    <color name="nav_active_bg">#E8F7FE</color>
+    <color name="nav_inactive">#A1A1AA</color>
+    <color name="nav_active_icon">#00AEEF</color>
+    <color name="nav_bar_bg">#FFFFFF</color>
+
+    <!-- Shimmer / Decorative -->
+    <color name="shimmer_base">#E4E4E7</color>
+    <color name="shimmer_highlight">#FAFAFA</color>
+
+    <!-- Status Gradient Colors -->
+    <color name="verified_grad_start">#22C55E</color>
+    <color name="verified_grad_end">#4ADE80</color>
+    <color name="pending_grad_start">#F59E0B</color>
+    <color name="pending_grad_end">#FBBF24</color>
+
+    <!-- Tab Colors -->
+    <color name="tab_active">#00AEEF</color>
+    <color name="tab_inactive">#A1A1AA</color>
+    <color name="tab_indicator">#00AEEF</color>
+
+    <!-- Chip Colors -->
+    <color name="chip_bg">#F4F4F5</color>
+    <color name="chip_bg_active">#E8F7FE</color>
+    <color name="chip_text">#71717A</color>
+    <color name="chip_text_active">#00AEEF</color>
+
+    <!-- Notification -->
+    <color name="notification_unread">#E8F7FE</color>
+    <color name="notification_dot">#EF4444</color>
+
+    <!-- Stat Card Colors -->
+    <color name="stat_valid_start">#22C55E</color>
+    <color name="stat_valid_end">#4ADE80</color>
+    <color name="stat_pending_start">#F59E0B</color>
+    <color name="stat_pending_end">#FBBF24</color>
+    <color name="stat_total_start">#00AEEF</color>
+    <color name="stat_total_end">#38BDF8</color>
+
+    <!-- Profile -->
+    <color name="avatar_bg">#CCECFB</color>
+    <color name="avatar_text">#00AEEF</color>
+
+    <!-- Bottom Sheet -->
+    <color name="bottom_sheet_bg">#FFFFFF</color>
+    <color name="bottom_sheet_handle">#D4D4D8</color>
+</resources>

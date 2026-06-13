@@ -1,0 +1,150 @@
+<resources xmlns:tools="http://schemas.android.com/tools">
+    <style name="Base.Theme.PensCert" parent="Theme.Material3.DayNight.NoActionBar">
+        <item name="android:windowBackground">@color/background</item>
+        <item name="colorPrimary">@color/primary</item>
+        <item name="colorOnPrimary">@color/white</item>
+        <item name="colorSecondaryContainer">@color/secondary</item>
+        <item name="colorOnSecondaryContainer">@color/secondary_foreground</item>
+
+        <item name="android:windowTranslucentStatus">false</item>
+        <item name="android:windowDrawsSystemBarBackgrounds">true</item>
+        <item name="android:navigationBarColor">@color/nav_bar_bg</item>
+        <item name="android:windowLightStatusBar">true</item>
+        <item name="android:statusBarColor">@android:color/transparent</item>
+
+        <item name="materialButtonStyle">@style/Widget.PensCert.Button.Modern</item>
+        <item name="materialCardViewStyle">@style/Widget.PensCert.Card.Modern</item>
+        <item name="textInputStyle">@style/Widget.PensCert.TextInputLayout.Modern</item>
+    </style>
+
+    <style name="Theme.PensCert" parent="Base.Theme.PensCert" />
+
+    <!-- Button Styles -->
+    <style name="Widget.PensCert.Button.Modern" parent="Widget.Material3.Button">
+        <item name="shapeAppearanceOverlay">@style/ShapeAppearance.PensCert.Medium</item>
+        <item name="android:insetTop">0dp</item>
+        <item name="android:insetBottom">0dp</item>
+        <item name="android:paddingTop">15dp</item>
+        <item name="android:paddingBottom">15dp</item>
+        <item name="android:textAllCaps">false</item>
+        <item name="android:fontFamily">sans-serif-medium</item>
+        <item name="android:letterSpacing">0.01</item>
+        <item name="android:textSize">15sp</item>
+        <item name="android:elevation">2dp</item>
+    </style>
+
+    <style name="Widget.PensCert.Button.Outline" parent="Widget.Material3.Button.OutlinedButton">
+        <item name="shapeAppearanceOverlay">@style/ShapeAppearance.PensCert.Medium</item>
+        <item name="android:insetTop">0dp</item>
+        <item name="android:insetBottom">0dp</item>
+        <item name="android:paddingTop">15dp</item>
+        <item name="android:paddingBottom">15dp</item>
+        <item name="android:textAllCaps">false</item>
+        <item name="android:fontFamily">sans-serif-medium</item>
+        <item name="android:textSize">15sp</item>
+        <item name="backgroundTint">@color/surface</item>
+        <item name="strokeColor">@color/border</item>
+        <item name="strokeWidth">1dp</item>
+        <item name="android:textColor">@color/foreground</item>
+    </style>
+
+    <style name="Widget.PensCert.Button.Text" parent="Widget.Material3.Button.TextButton">
+        <item name="android:insetTop">0dp</item>
+        <item name="android:insetBottom">0dp</item>
+        <item name="android:textAllCaps">false</item>
+        <item name="android:fontFamily">sans-serif-medium</item>
+        <item name="android:textSize">15sp</item>
+    </style>
+
+    <!-- Card Styles -->
+    <style name="Widget.PensCert.Card.Modern" parent="Widget.Material3.CardView.Elevated">
+        <item name="cardBackgroundColor">@color/surface</item>
+        <item name="cardCornerRadius">14dp</item>
+        <item name="cardElevation">0dp</item>
+        <item name="strokeColor">@color/border</item>
+        <item name="strokeWidth">1dp</item>
+    </style>
+
+    <!-- Input Style -->
+    <style name="Widget.PensCert.TextInputLayout.Modern" parent="Widget.Material3.TextInputLayout.OutlinedBox">
+        <item name="boxStrokeColor">@color/border</item>
+        <item name="boxStrokeWidth">1dp</item>
+        <item name="boxCornerRadiusTopStart">14dp</item>
+        <item name="boxCornerRadiusTopEnd">14dp</item>
+        <item name="boxCornerRadiusBottomStart">14dp</item>
+        <item name="boxCornerRadiusBottomEnd">14dp</item>
+        <item name="boxBackgroundColor">@color/surface_variant</item>
+    </style>
+
+    <!-- TabLayout Style -->
+    <style name="Widget.PensCert.TabLayout" parent="Widget.Material3.TabLayout">
+        <item name="tabIndicatorColor">@color/tab_indicator</item>
+        <item name="tabIndicatorHeight">3dp</item>
+        <item name="tabSelectedTextColor">@color/tab_active</item>
+        <item name="tabTextColor">@color/tab_inactive</item>
+        <item name="tabRippleColor">@color/primary_glow</item>
+        <item name="android:background">@android:color/transparent</item>
+        <item name="tabTextAppearance">@style/Text.PensCert.Tab</item>
+    </style>
+
+    <!-- Shape Appearances -->
+    <style name="ShapeAppearance.PensCert.Medium" parent="ShapeAppearance.Material3.MediumComponent">
+        <item name="cornerSize">12dp</item>
+    </style>
+
+    <style name="ShapeAppearance.PensCert.Circle" parent="ShapeAppearance.Material3.LargeComponent">
+        <item name="cornerSize">50%</item>
+    </style>
+
+    <style name="ShapeAppearance.PensCert.Small" parent="ShapeAppearance.Material3.SmallComponent">
+        <item name="cornerSize">8dp</item>
+    </style>
+
+    <style name="ShapeAppearance.PensCert.Large" parent="ShapeAppearance.Material3.LargeComponent">
+        <item name="cornerSize">16dp</item>
+    </style>
+
+    <!-- Text Styles -->
+    <style name="Text.PensCert.Headline" parent="TextAppearance.Material3.HeadlineLarge">
+        <item name="android:fontFamily">sans-serif-black</item>
+        <item name="android:textColor">@color/foreground</item>
+        <item name="android:letterSpacing">-0.02</item>
+    </style>
+
+    <style name="Text.PensCert.Title" parent="TextAppearance.Material3.TitleLarge">
+        <item name="android:fontFamily">sans-serif-black</item>
+        <item name="android:textColor">@color/foreground</item>
+    </style>
+
+    <style name="Text.PensCert.Subtitle" parent="TextAppearance.Material3.TitleMedium">
+        <item name="android:fontFamily">sans-serif-medium</item>
+        <item name="android:textColor">@color/muted_foreground</item>
+        <item name="android:textSize">14sp</item>
+    </style>
+
+    <style name="Text.PensCert.Label" parent="TextAppearance.Material3.LabelSmall">
+        <item name="android:fontFamily">sans-serif-bold</item>
+        <item name="android:textColor">@color/muted_foreground</item>
+        <item name="android:letterSpacing">0.10</item>
+        <item name="android:textSize">11sp</item>
+    </style>
+
+    <style name="Text.PensCert.Caption" parent="TextAppearance.Material3.BodySmall">
+        <item name="android:fontFamily">sans-serif-medium</item>
+        <item name="android:textColor">@color/muted_foreground</item>
+        <item name="android:textSize">12sp</item>
+    </style>
+
+    <style name="Text.PensCert.Tab" parent="TextAppearance.Material3.LabelMedium">
+        <item name="android:fontFamily">sans-serif-bold</item>
+        <item name="android:textSize">12sp</item>
+        <item name="android:letterSpacing">0.06</item>
+    </style>
+
+    <style name="Text.PensCert.SectionHeader" parent="TextAppearance.Material3.LabelSmall">
+        <item name="android:fontFamily">sans-serif-bold</item>
+        <item name="android:textColor">@color/muted_foreground</item>
+        <item name="android:letterSpacing">0.12</item>
+        <item name="android:textSize">11sp</item>
+    </style>
+</resources>
