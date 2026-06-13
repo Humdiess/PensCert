@@ -11,7 +11,9 @@ import android.widget.TextView;
 import androidx.activity.EdgeToEdge;
 import androidx.activity.result.ActivityResultLauncher;
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.core.view.ViewCompat;
 import androidx.core.view.WindowCompat;
+import androidx.core.view.WindowInsetsCompat;
 import androidx.core.view.WindowInsetsControllerCompat;
 import androidx.fragment.app.Fragment;
 
@@ -73,7 +75,7 @@ public class MainActivity extends AppCompatActivity {
         navNotif.setOnClickListener(v -> switchFragment(notificationsFragment, 2));
         navProfile.setOnClickListener(v -> switchFragment(profileFragment, 3));
 
-        // Center FAB - QR Scanner
+        // FAB - QR Scanner
         FloatingActionButton fabScan = findViewById(R.id.fabScan);
         fabScan.setOnClickListener(v -> {
             ScanOptions options = new ScanOptions();
@@ -84,6 +86,20 @@ public class MainActivity extends AppCompatActivity {
             options.setOrientationLocked(false);
             options.setCaptureActivity(CaptureActivityPortrait.class);
             barcodeLauncher.launch(options);
+        });
+
+        // Edge-to-edge: apply system bar insets
+        View bottomBar = findViewById(R.id.bottomBar);
+        ViewCompat.setOnApplyWindowInsetsListener(findViewById(R.id.main), (view, insets) -> {
+            int bottomInset = insets.getInsets(WindowInsetsCompat.Type.systemBars()).bottom;
+
+            // Navbar padding follows system inset
+            bottomBar.setPadding(0, 0, 0, bottomInset);
+
+            // FAB shifts up to stay level with navbar
+            fabScan.setTranslationY(-bottomInset);
+
+            return insets;
         });
     }
 

@@ -4,165 +4,173 @@
     android:id="@+id/main"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@color/background">
+    android:background="@color/background"
+    android:clipChildren="false"
+    android:clipToPadding="false">
 
+    <!-- Fragment Container -->
     <FrameLayout
         android:id="@+id/fragmentContainer"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:layout_marginBottom="72dp" />
-
-    <!-- Bottom Nav Container (FAB + Bar together for correct z-order) -->
-    <FrameLayout
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_gravity="bottom"
         android:clipChildren="false"
-        android:clipToPadding="false">
+        android:clipToPadding="false"/>
 
-        <!-- Bottom Navigation Bar -->
+    <!-- Bottom Navigation -->
+    <LinearLayout
+        android:id="@+id/bottomBar"
+        android:layout_width="match_parent"
+        android:layout_height="72dp"
+        android:layout_gravity="bottom"
+        android:background="@color/nav_bar_bg"
+        android:elevation="12dp"
+        android:gravity="center_vertical"
+        android:orientation="horizontal">
+
+        <!-- Home -->
         <LinearLayout
-            android:id="@+id/bottomBar"
-            android:layout_width="match_parent"
-            android:layout_height="72dp"
-            android:layout_gravity="bottom"
-            android:background="@color/nav_bar_bg"
-            android:elevation="8dp"
-            android:orientation="horizontal"
-            android:gravity="center_vertical">
+            android:id="@+id/navHome"
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:background="?attr/selectableItemBackgroundBorderless"
+            android:clickable="true"
+            android:focusable="true"
+            android:gravity="center"
+            android:orientation="vertical">
 
-            <!-- Left Group: Home + Documents -->
-            <LinearLayout
-                android:id="@+id/navHome"
-                android:layout_width="0dp"
-                android:layout_height="match_parent"
-                android:layout_weight="1"
-                android:orientation="vertical"
-                android:gravity="center"
-                android:clickable="true"
-                android:focusable="true"
-                android:background="?attr/selectableItemBackgroundBorderless">
-                <ImageView
-                    android:id="@+id/navHomeIcon"
-                    android:layout_width="22dp"
-                    android:layout_height="22dp"
-                    android:src="@drawable/ic_home"
-                    app:tint="@color/nav_active_icon" />
-                <TextView
-                    android:id="@+id/navHomeLabel"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_marginTop="3dp"
-                    android:text="Home"
-                    android:textColor="@color/nav_active_icon"
-                    android:textSize="10sp"
-                    android:fontFamily="sans-serif-medium" />
-            </LinearLayout>
+            <ImageView
+                android:id="@+id/navHomeIcon"
+                android:layout_width="22dp"
+                android:layout_height="22dp"
+                android:src="@drawable/ic_home"
+                app:tint="@color/nav_active_icon" />
 
-            <LinearLayout
-                android:id="@+id/navDocs"
-                android:layout_width="0dp"
-                android:layout_height="match_parent"
-                android:layout_weight="1"
-                android:orientation="vertical"
-                android:gravity="center"
-                android:clickable="true"
-                android:focusable="true"
-                android:background="?attr/selectableItemBackgroundBorderless">
-                <ImageView
-                    android:id="@+id/navDocsIcon"
-                    android:layout_width="22dp"
-                    android:layout_height="22dp"
-                    android:src="@drawable/ic_document"
-                    app:tint="@color/nav_inactive" />
-                <TextView
-                    android:id="@+id/navDocsLabel"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_marginTop="3dp"
-                    android:text="Dokumen"
-                    android:textColor="@color/nav_inactive"
-                    android:textSize="10sp"
-                    android:fontFamily="sans-serif-medium" />
-            </LinearLayout>
-
-            <!-- Center Spacer for FAB -->
-            <FrameLayout
-                android:layout_width="72dp"
-                android:layout_height="match_parent" />
-
-            <!-- Right Group: Notifications + Profile -->
-            <LinearLayout
-                android:id="@+id/navNotif"
-                android:layout_width="0dp"
-                android:layout_height="match_parent"
-                android:layout_weight="1"
-                android:orientation="vertical"
-                android:gravity="center"
-                android:clickable="true"
-                android:focusable="true"
-                android:background="?attr/selectableItemBackgroundBorderless">
-                <ImageView
-                    android:id="@+id/navNotifIcon"
-                    android:layout_width="22dp"
-                    android:layout_height="22dp"
-                    android:src="@drawable/ic_notification"
-                    app:tint="@color/nav_inactive" />
-                <TextView
-                    android:id="@+id/navNotifLabel"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_marginTop="3dp"
-                    android:text="Notifikasi"
-                    android:textColor="@color/nav_inactive"
-                    android:textSize="10sp"
-                    android:fontFamily="sans-serif-medium" />
-            </LinearLayout>
-
-            <LinearLayout
-                android:id="@+id/navProfile"
-                android:layout_width="0dp"
-                android:layout_height="match_parent"
-                android:layout_weight="1"
-                android:orientation="vertical"
-                android:gravity="center"
-                android:clickable="true"
-                android:focusable="true"
-                android:background="?attr/selectableItemBackgroundBorderless">
-                <ImageView
-                    android:id="@+id/navProfileIcon"
-                    android:layout_width="22dp"
-                    android:layout_height="22dp"
-                    android:src="@drawable/ic_profile"
-                    app:tint="@color/nav_inactive" />
-                <TextView
-                    android:id="@+id/navProfileLabel"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_marginTop="3dp"
-                    android:text="Profil"
-                    android:textColor="@color/nav_inactive"
-                    android:textSize="10sp"
-                    android:fontFamily="sans-serif-medium" />
-            </LinearLayout>
+            <TextView
+                android:id="@+id/navHomeLabel"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="3dp"
+                android:fontFamily="sans-serif-medium"
+                android:text="Home"
+                android:textColor="@color/nav_active_icon"
+                android:textSize="10sp" />
         </LinearLayout>
 
-        <!-- Center FAB (QR Scan) - Protruding above bottom bar -->
-        <com.google.android.material.floatingactionbutton.FloatingActionButton
-            android:id="@+id/fabScan"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_gravity="center_horizontal"
-            android:layout_marginBottom="42dp"
-            android:src="@drawable/ic_qr_scan"
-            android:contentDescription="Scan QR"
-            app:fabCustomSize="60dp"
-            app:backgroundTint="@color/pens_blue"
-            app:tint="@color/white"
-            app:elevation="12dp"
-            app:borderWidth="3dp"
-            app:maxImageSize="28dp" />
+        <!-- Documents -->
+        <LinearLayout
+            android:id="@+id/navDocs"
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:background="?attr/selectableItemBackgroundBorderless"
+            android:clickable="true"
+            android:focusable="true"
+            android:gravity="center"
+            android:orientation="vertical">
 
-    </FrameLayout>
+            <ImageView
+                android:id="@+id/navDocsIcon"
+                android:layout_width="22dp"
+                android:layout_height="22dp"
+                android:src="@drawable/ic_document"
+                app:tint="@color/nav_inactive" />
+
+            <TextView
+                android:id="@+id/navDocsLabel"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="3dp"
+                android:fontFamily="sans-serif-medium"
+                android:text="Dokumen"
+                android:textColor="@color/nav_inactive"
+                android:textSize="10sp" />
+        </LinearLayout>
+
+        <!-- Space untuk QR -->
+        <FrameLayout
+            android:layout_width="84dp"
+            android:layout_height="match_parent" />
+
+        <!-- Notification -->
+        <LinearLayout
+            android:id="@+id/navNotif"
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:background="?attr/selectableItemBackgroundBorderless"
+            android:clickable="true"
+            android:focusable="true"
+            android:gravity="center"
+            android:orientation="vertical">
+
+            <ImageView
+                android:id="@+id/navNotifIcon"
+                android:layout_width="22dp"
+                android:layout_height="22dp"
+                android:src="@drawable/ic_notification"
+                app:tint="@color/nav_inactive" />
+
+            <TextView
+                android:id="@+id/navNotifLabel"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="3dp"
+                android:fontFamily="sans-serif-medium"
+                android:text="Notifikasi"
+                android:textColor="@color/nav_inactive"
+                android:textSize="10sp" />
+        </LinearLayout>
+
+        <!-- Profile -->
+        <LinearLayout
+            android:id="@+id/navProfile"
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:background="?attr/selectableItemBackgroundBorderless"
+            android:clickable="true"
+            android:focusable="true"
+            android:gravity="center"
+            android:orientation="vertical">
+
+            <ImageView
+                android:id="@+id/navProfileIcon"
+                android:layout_width="22dp"
+                android:layout_height="22dp"
+                android:src="@drawable/ic_profile"
+                app:tint="@color/nav_inactive" />
+
+            <TextView
+                android:id="@+id/navProfileLabel"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="3dp"
+                android:fontFamily="sans-serif-medium"
+                android:text="Profil"
+                android:textColor="@color/nav_inactive"
+                android:textSize="10sp" />
+        </LinearLayout>
+
+    </LinearLayout>
+
+    <!-- Floating QR Button - sejajar (level) with navbar -->
+    <com.google.android.material.floatingactionbutton.FloatingActionButton
+        android:id="@+id/fabScan"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="bottom|center_horizontal"
+        android:layout_marginBottom="4dp"
+        android:translationZ="100dp"
+        android:elevation="24dp"
+        android:contentDescription="Scan QR"
+        android:src="@drawable/ic_qr_scan"
+        app:backgroundTint="@color/pens_blue"
+        app:borderWidth="4dp"
+        app:fabCustomSize="64dp"
+        app:maxImageSize="32dp"
+        app:tint="@android:color/white"
+        app:rippleColor="@color/white"/>
+
 
 </FrameLayout>
