@@ -48,7 +48,7 @@ public class LoginActivity extends AppCompatActivity {
             String pass = etPassword.getText() != null ? etPassword.getText().toString().trim() : "";
 
             if (id.isEmpty()) {
-                etNimNip.setError("NIM/NIP wajib diisi");
+                etNimNip.setError("NRP/NIP wajib diisi");
                 return;
             }
             if (pass.isEmpty()) {

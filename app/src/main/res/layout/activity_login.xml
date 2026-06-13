@@ -154,12 +154,12 @@
                         </RadioGroup>
                     </com.google.android.material.card.MaterialCardView>
 
-                    <!-- NIM/NIP -->
+                    <!-- NRP/NIP -->
                     <TextView
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_marginTop="16dp"
-                        android:text="NIM / NIP"
+                        android:text="NRP / NIP"
                         android:textColor="#80FFFFFF"
                         android:textSize="11sp"
                         android:fontFamily="sans-serif-bold"
@@ -181,7 +181,7 @@
                             android:id="@+id/etNimNip"
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
-                            android:hint="Masukkan NIM atau NIP"
+                            android:hint="Masukkan NRP atau NIP"
                             android:textColorHint="#60FFFFFF"
                             android:textColor="@color/white"
                             android:inputType="text"

@@ -62,7 +62,7 @@ public class ProfileFragment extends Fragment {
         // Set profile header
         tvProfileName.setText(userName);
         tvProfileRole.setText(role);
-        String idLabel = "Dosen".equals(role) ? "NIP: " : "NIM: ";
+        String idLabel = "Dosen".equals(role) ? "NIP: " : "NRP: ";
         tvProfileId.setText(idLabel + userId);
 
         // Set info card

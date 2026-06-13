@@ -91,7 +91,7 @@
                         android:layout_height="wrap_content"
                         android:paddingHorizontal="16dp"
                         android:paddingVertical="6dp"
-                        android:text="NIM: 00000000"
+                        android:text="NRP: 00000000"
                         android:textColor="#99D6F4"
                         android:textSize="12sp"
                         android:fontFamily="sans-serif-bold" />
